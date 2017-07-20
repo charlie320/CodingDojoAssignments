@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+
+    <h1>Home Page</h1>
+
+    {% for blog in blogs %}
+      <h5>{{blog.title}}</h5>
+      <p>{{blog.blog}}</p>
+      
+      <form class="" action="comments/{{blog.id}}" method="post">
+        {% csrf_token %}
+
+        <textarea name="comment" rows="8" cols="80"></textarea>
+        <input type="submit" name="" value="Enter comment on this blog">
+      </form>
+    {% endfor %}
+
+    <form class="" action="/blogs" method="post">
+      {% csrf_token %}
+      <label for="">Title</label>
+      <input type="text" name="title" value="">
+      <textarea name= "blog" rows="8" cols="80"></textarea>
+      <input type="submit" name="" value="Enter Blog">
+    </form>
+  </body>
+</html>
