@@ -8,7 +8,8 @@
   </head>
   <body>
     <h1>username_validation_app</h1>
-    <form class="" action="validate" method="post">
+    {{request.session.name}}
+    <form class="" action="/validate" method="post">
       {% csrf_token %}
       <label for="">Username:</label>
       <input type="text" name="username" value="">
