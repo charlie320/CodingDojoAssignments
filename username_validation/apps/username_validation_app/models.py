@@ -16,10 +16,10 @@ class UserManager(models.Manager):
 
         return False
 
-    def register(self, postData):
-        print ("Register a user here")
-        print ("If successful, maybe return {'theuser':user} where user is a user object?")
-        print ("If unsuccessful do something like this? return {'errors':['User first name to short', 'Last name too short'] ")
+    # def register(self, postData):
+        # print ("Register a user here")
+        # print ("If successful, maybe return {'theuser':user} where user is a user object?")
+        # print ("If unsuccessful do something like this? return {'errors':['User first name to short', 'Last name too short'] ")
 
 class User(models.Model):
     email = models.CharField(max_length = 45)

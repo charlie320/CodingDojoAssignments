@@ -13,7 +13,11 @@ def validate(request):
     myResponse = User.userManager.login(request.POST['username'])
     print myResponse
     if myResponse:
-        return render(request, 'username_validation_app/success.html')
+        User.userManager.create(email=request.POST['username'])
+        context_success = {
+            "usernames" : User.userManager.all()
+        }
+        return render(request, 'username_validation_app/success.html', context_success)
     else:
         context = {
             "messages" : "Username is not valid!"

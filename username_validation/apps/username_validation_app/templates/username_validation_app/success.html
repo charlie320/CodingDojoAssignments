@@ -5,17 +5,19 @@
     <title>success</title>
   </head>
   <body>
-    <label for="">{{request.session.name}}  is a valid username.  Thank you!</label>
+    <label for="">The username you entered ({{request.session.name}}) is valid.  Thank you!</label>
 
     <p>Usernames entered:</p>
 
     <table>
-      <!-- loop starts here -->
+      {% for user in usernames %}
       <tr>
-        <td>email goes here</td>
-        <td>date/time username created goes here</td>
+        <td>{{user.email}}</td>
+        <td>{{user.created_at}}</td>
       </tr>
+      {% endfor %}
     </table>
+    
     <form class="" action="return_home" method="post">
       {% csrf_token %}
       <input type="submit" name="" value="Back to Home Page">
