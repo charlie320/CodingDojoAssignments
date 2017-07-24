@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    <h2>Register</h2>
+    <form class="" action="register" method="post">
+      {%csrf_token%}
+      <label for="">First Name:</label>
+      <input type="text" name="first_name" value="">
+      <label for="">Last Name:</label>
+      <input type="text" name="last_name" value="">
+      <label for="">E-mail:</label>
+      <input type="email" name="email" value="">
+      <label for="">Password:</label>
+      <input type="password" name="password" value="">
+      <label for="">Confirm Password:</label>
+      <input type="password" name="password_confirm" value="">
+      <input type="submit" name="submit" value="Submit">
+    </form>
+
+    <h2>Login</h2>
+    <form class="" action="login" method="post">
+      {%csrf_token%}
+      <label for="">E-Mail:</label>
+      <input type="email" name="email" value="">
+      <label for="">Password:</label>
+      <input type="password" name="password" value="">
+      <input type="submit" name="submit" value="Submit">
+    </form>
+  </body>
+</html>
