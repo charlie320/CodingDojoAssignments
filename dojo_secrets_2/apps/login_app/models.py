@@ -4,7 +4,9 @@ import bcrypt
 
 # Create your models here.
 class UserManager(models.Manager):
-    pass
+    def currentUser(self, request):
+        id = request.session['user_id']
+        return User.objects.get(id=id)
 
 class User(models.Model):
     first_name = models.CharField(max_length = 255)
