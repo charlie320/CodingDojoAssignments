@@ -10,3 +10,27 @@ def flashErrors(request, errors):
 
 def index(request):
     return render(request, 'login_app/index.html')
+
+def success(request):
+    print "Inside the success function"
+    pass
+
+def register(request):
+    print "Inside the register function"
+    return redirect('/')
+
+def login(request):
+    print "Inside the login function"
+    return redirect('/')
+
+def logout(request):
+    print "Inside the logout function"
+    pass
+
+def addFriend(request, id):
+    print "Inside the addFriend function"
+    pass
+
+def removeFriend(request, id):
+    print "Inside the removeFriend function"
+    pass
