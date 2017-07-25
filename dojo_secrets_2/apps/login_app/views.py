@@ -13,11 +13,31 @@ def index(request):
 
 def success(request):
     print "Inside the success function"
-    pass
+    if 'user_id' in request.session:
+        current_user = User.objects.currentUser(request)
+        friends = current_user.friends.all()
+        users = User.objects.exclude(id__in=friends).exclude(id=current_user.id)
+
+        context = {
+            'users' : users,
+            'friends' : friends,
+        }
+        return render(request, 'login_app/success.html', context)
+    return redirect(reverse('landing'))
 
 def register(request):
     print "Inside the register function"
-    return redirect('/')
+    if request.method == "POST":
+        errors = User.objects.validateRegistration(request.POST)
+
+        if not errors:
+            user = User.objects.createUser(request.POST)
+            request.session['user_id'] = user.id
+            return redirect(reverse('success'))
+
+        flashErrors(request, errors)
+
+    return redirect(reverse('landing'))
 
 def login(request):
     print "Inside the login function"
